@@ -10,8 +10,7 @@ CONFIG -= app_bundle
 SOURCES += \
         lconnectHardware.cpp \
         lhardwareconnect.cpp \
-        main.cpp \
-        protocol.cpp
+        main.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -21,5 +20,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     ecode.h \
     lconnectHardware.h \
-    lhardwareconnect.h \
-    protocol.h
+    lhardwareconnect.h
