@@ -1197,6 +1197,13 @@ void SerialPort::errCodeCallback(uint8_t errorCode)
     }
 }
 
+void SerialPort::setID(uint8_t id)
+{
+#ifdef DEVICE_ID
+#undef DEVICE_ID
+#define DEVICE_ID id;
+}
+
 QByteArray SerialPort::array2ByteArray()
 {
     QByteArray sendPkt;

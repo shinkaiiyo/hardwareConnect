@@ -9,7 +9,7 @@ LhardwareConnect::LhardwareConnect(QWidget *parent) :
     QObject(parent), m_threadForSerial(new QThread(this))
 {
     qDebug() << "con create";
-    m_port = new SerialPort(this);
+    m_port = new SerialPort();
     // for serial
     connect(m_port,            SIGNAL(sgConnected()),                   this,   SLOT(onConnected()));
     connect(m_port,            SIGNAL(sgDisconnected()),                this,   SLOT(onDisconnected()));
@@ -41,7 +41,7 @@ void LhardwareConnect::createConnection()
         serialportinfo<<info.portName();
     }
     QMetaObject::invokeMethod(m_port, "tryConnect", Qt::QueuedConnection ,
-                              Q_ARG(QString, serialportinfo.empty() ? "COM3" : serialportinfo.at(0)),
+                              Q_ARG(QString, "COM5"),
                               Q_ARG(quint32, 115200),
                               Q_ARG(quint32, 8),
                               Q_ARG(quint32, 0),
